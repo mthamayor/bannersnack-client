@@ -28,4 +28,4 @@ The app will be exposed on `http://localhost:3000`
 
 ## Deployment
 
-A live version of the project is deployed on [heroku](https://bannerstack-client.herokuapp.com)
+A live version of the project is deployed on [heroku](https://bannersnack-client.herokuapp.com)
