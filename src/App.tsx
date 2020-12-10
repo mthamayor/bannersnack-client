@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import RouteProvider from './RouteProvider';
+import { Provider } from 'react-redux';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import store from './redux/store';
+import AlertSnackBar from './components/AlertSnackBar';
+import { CustomPageLoader } from './components/CustomPageLoader';
+
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#43a047' }, // Purple and green play nicely together.
+    secondary: { main: '#11cb5f' } // This is just green.A700 as hex.
+  },
+  typography: {
+    fontFamily: ['Oxygen', 'sans-serif'].join(','),
+  }
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MuiThemeProvider theme={theme}>
+      <Provider store={store}>
+        <AlertSnackBar />
+        <CustomPageLoader />
+        <RouteProvider />
+      </Provider>
+    </MuiThemeProvider>
   );
 }
 
